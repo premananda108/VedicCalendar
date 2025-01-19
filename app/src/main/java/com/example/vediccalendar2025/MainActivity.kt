@@ -12,6 +12,8 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 import kotlin.math.abs
+import io.noties.markwon.Markwon
+import android.text.method.LinkMovementMethod
 
 class MainActivity : AppCompatActivity() {
     private lateinit var vedicCalendar: VedicCalendar
@@ -20,21 +22,34 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvEvent: TextView
     private lateinit var ivEventImage: ImageView
     private lateinit var gestureDetector: GestureDetector
+    private lateinit var markwon: Markwon
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         vedicCalendar = VedicCalendar(this)
+        markwon = Markwon.create(this)
         initViews()
         initGestureDetector()
         updateDisplay()
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+        if (gestureDetector.onTouchEvent(ev)) {
+            return true
+        }
+        return super.dispatchTouchEvent(ev)
     }
 
     private fun initGestureDetector() {
         gestureDetector = GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
             private val SWIPE_THRESHOLD = 100
             private val SWIPE_VELOCITY_THRESHOLD = 100
+
+            override fun onDown(e: MotionEvent): Boolean {
+                return false
+            }
 
             override fun onFling(
                 e1: MotionEvent?,
@@ -69,11 +84,8 @@ class MainActivity : AppCompatActivity() {
         tvEvent = findViewById(R.id.tvEvent)
         ivEventImage = findViewById(R.id.ivEventImage)
 
-        // Добавляем обработку касаний для всего контента
-        findViewById<View>(R.id.contentLayout).setOnTouchListener { v, event ->
-            gestureDetector.onTouchEvent(event)
-            true
-        }
+        // Настраиваем поддержку кликабельных ссылок
+        tvEvent.movementMethod = LinkMovementMethod.getInstance()
 
         findViewById<Button>(R.id.btnPrevious).setOnClickListener { 
             currentDate = currentDate.minusDays(1)
@@ -91,7 +103,11 @@ class MainActivity : AppCompatActivity() {
         val event = vedicCalendar.getEventForDate(currentDate)
         
         tvDate.text = currentDate.format(dateFormatter)
-        tvEvent.text = event?.description ?: "Нет события на эту дату"
+        event?.description?.let { description ->
+            markwon.setMarkdown(tvEvent, description)
+        } ?: run {
+            tvEvent.text = "Нет события на эту дату"
+        }
         
         // Загрузка и отображение изображения с анимацией
         if (event != null) {
