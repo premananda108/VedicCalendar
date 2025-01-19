@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Основные цвета -->
+    <color name="primary">#E65100</color>
+    <color name="primary_variant">#B23F00</color>
+    <color name="secondary">#FFC107</color>
+    <color name="secondary_variant">#DDA600</color>
+    
+    <!-- Фоновые цвета -->
+    <color name="background">#FFF8E1</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="toolbar_background">#F5E65100</color>
+    
+    <!-- Цвета текста -->
+    <color name="text_primary">#3E2723</color>
+    <color name="text_secondary">#5D4037</color>
+    
+    <!-- Акцентные цвета -->
+    <color name="accent_positive">#4CAF50</color>
+    <color name="accent_negative">#D32F2F</color>
+    <color name="accent_neutral">#1976D2</color>
+    
+    <!-- Дополнительные цвета -->
+    <color name="divider">#ECEFF1</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
 </resources>

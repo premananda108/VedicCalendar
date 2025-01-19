@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">VedicCalendar2025</string>
+    <string name="app_name">Ведический календарь 2025</string>
     <string name="previous">Предыдущий</string>
     <string name="next">Следующий</string>
     <string name="event_image">Изображение события</string>
