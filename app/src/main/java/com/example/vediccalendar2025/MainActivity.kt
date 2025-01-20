@@ -25,37 +25,65 @@ class MainActivity : AppCompatActivity() {
     private lateinit var gestureDetector: GestureDetector
     private lateinit var markwon: Markwon
     
+    // Константы для жестов
+    private companion object {
+        const val SWIPE_THRESHOLD = 100
+        const val SWIPE_VELOCITY_THRESHOLD = 100
+    }
+    
+    // Форматтер даты как статическое поле
+    private val dateFormatter = DateTimeFormatter.ofPattern("d MMMM yyyy", Locale("ru"))
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Настройка Toolbar
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)
-        supportActionBar?.title = getString(R.string.app_name)
-
-        vedicCalendar = VedicCalendar(this)
-        markwon = Markwon.create(this)
-        initViews()
+        setupToolbar()
+        initializeComponents()
         initGestureDetector()
         updateDisplay()
     }
 
-    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
-        if (gestureDetector.onTouchEvent(ev)) {
-            return true
+    private fun setupToolbar() {
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = getString(R.string.app_name)
+    }
+
+    private fun initializeComponents() {
+        vedicCalendar = VedicCalendar(this)
+        markwon = Markwon.create(this)
+        
+        tvDate = findViewById(R.id.tvDate)
+        tvEvent = findViewById(R.id.tvEvent)
+        ivEventImage = findViewById(R.id.ivEventImage)
+        tvEvent.movementMethod = LinkMovementMethod.getInstance()
+
+        setupNavigationButtons()
+    }
+
+    private fun setupNavigationButtons() {
+        findViewById<Button>(R.id.btnPrevious).setOnClickListener { 
+            navigateDate(-1)
         }
-        return super.dispatchTouchEvent(ev)
+
+        findViewById<Button>(R.id.btnNext).setOnClickListener {
+            navigateDate(1)
+        }
+    }
+
+    private fun navigateDate(days: Int) {
+        currentDate = currentDate.plusDays(days.toLong())
+        updateDisplay()
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+        return if (gestureDetector.onTouchEvent(ev)) true else super.dispatchTouchEvent(ev)
     }
 
     private fun initGestureDetector() {
         gestureDetector = GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
-            private val SWIPE_THRESHOLD = 100
-            private val SWIPE_VELOCITY_THRESHOLD = 100
-
-            override fun onDown(e: MotionEvent): Boolean {
-                return false
-            }
+            override fun onDown(e: MotionEvent) = false
 
             override fun onFling(
                 e1: MotionEvent?,
@@ -70,14 +98,7 @@ class MainActivity : AppCompatActivity() {
                     abs(diffX) > SWIPE_THRESHOLD && 
                     abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
                     
-                    if (diffX > 0) {
-                        // Свайп вправо - предыдущий день
-                        currentDate = currentDate.minusDays(1)
-                    } else {
-                        // Свайп влево - следующий день
-                        currentDate = currentDate.plusDays(1)
-                    }
-                    updateDisplay()
+                    navigateDate(if (diffX > 0) -1 else 1)
                     return true
                 }
                 return false
@@ -85,47 +106,39 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun initViews() {
-        tvDate = findViewById(R.id.tvDate)
-        tvEvent = findViewById(R.id.tvEvent)
-        ivEventImage = findViewById(R.id.ivEventImage)
-
-        // Настраиваем поддержку кликабельных ссылок
-        tvEvent.movementMethod = LinkMovementMethod.getInstance()
-
-        findViewById<Button>(R.id.btnPrevious).setOnClickListener { 
-            currentDate = currentDate.minusDays(1)
-            updateDisplay()
-        }
-
-        findViewById<Button>(R.id.btnNext).setOnClickListener {
-            currentDate = currentDate.plusDays(1)
-            updateDisplay()
-        }
+    private fun updateDisplay() {
+        tvDate.text = currentDate.format(dateFormatter)
+        
+        val event = vedicCalendar.getEventForDate(currentDate)
+        updateEventDisplay(event)
     }
 
-    private fun updateDisplay() {
-        val dateFormatter = DateTimeFormatter.ofPattern("d MMMM yyyy", Locale("ru"))
-        val event = vedicCalendar.getEventForDate(currentDate)
+    private fun updateEventDisplay(event: CalendarEvent?) {
+        // Сбрасываем позицию прокрутки в начало
+        tvEvent.scrollTo(0, 0)
         
-        tvDate.text = currentDate.format(dateFormatter)
         event?.description?.let { description ->
             markwon.setMarkdown(tvEvent, description)
         } ?: run {
-            tvEvent.text = "Нет события на эту дату"
+            tvEvent.text = getString(R.string.no_event)
         }
         
-        // Загрузка и отображение изображения с анимацией
+        updateEventImage(event)
+    }
+
+    private fun updateEventImage(event: CalendarEvent?) {
         if (event != null) {
             val bitmap = vedicCalendar.loadEventImage(event)
             if (bitmap != null) {
-                ivEventImage.alpha = 0f
-                ivEventImage.setImageBitmap(bitmap)
-                ivEventImage.visibility = View.VISIBLE
-                ivEventImage.animate()
-                    .alpha(1f)
-                    .setDuration(500)
-                    .start()
+                ivEventImage.apply {
+                    alpha = 0f
+                    setImageBitmap(bitmap)
+                    visibility = View.VISIBLE
+                    animate()
+                        .alpha(1f)
+                        .setDuration(500)
+                        .start()
+                }
             } else {
                 ivEventImage.visibility = View.GONE
             }

@@ -4,4 +4,5 @@
     <string name="previous">Предыдущий</string>
     <string name="next">Следующий</string>
     <string name="event_image">Изображение события</string>
+    <string name="no_event">Нет события на эту дату</string>
 </resources>
