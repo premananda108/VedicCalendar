@@ -16,12 +16,18 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:layout_marginTop="8dp"
             android:background="@drawable/toolbar_background"
-            android:elevation="2dp"
-            app:titleTextAppearance="@style/ToolbarTitleStyle"
-            app:contentInsetStartWithNavigation="0dp"
-            app:contentInsetStart="16dp" />
+            app:contentInsetStart="0dp"
+            app:contentInsetStartWithNavigation="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🕉 Ведический календарь 2025 🕉"
+                android:gravity="center"
+                android:textAppearance="@style/ToolbarTitleStyle" />
+
+        </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 

@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupToolbar() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar?.title = getString(R.string.app_name)
+        //supportActionBar?.title = getString(R.string.app_name)
     }
 
     private fun initializeComponents() {

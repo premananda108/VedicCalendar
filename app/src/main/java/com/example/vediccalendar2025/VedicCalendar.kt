@@ -26,19 +26,24 @@ class VedicCalendar(private val context: Context) {
     }
 
     private fun loadEventsFromJson(): List<CalendarEvent> {
-        val jsonString = context.assets.open("calendar_data.json").bufferedReader().use { it.readText() }
-        val gson = Gson()
-        val calendarData = gson.fromJson(jsonString, CalendarData::class.java)
-        
-        return calendarData.events.map { 
-            CalendarEvent(
-                LocalDate.parse(it.date, DateTimeFormatter.ISO_DATE),
-                it.description,
-                it.image
-            )
+        return try {
+            val jsonString = context.assets.open("calendar_data.json").bufferedReader().use { it.readText() }
+            Log.d("VedicCalendar", "JSON Loaded: $jsonString") // Логирование загруженного JSON
+            val gson = Gson()
+            val calendarData = gson.fromJson(jsonString, CalendarData::class.java)
+            
+            calendarData.events.map { 
+                CalendarEvent(
+                    LocalDate.parse(it.date, DateTimeFormatter.ISO_DATE),
+                    it.description,
+                    it.image
+                )
+            }
+        } catch (e: Exception) {
+            Log.e("VedicCalendar", "Error loading events from JSON: ${e.message}", e)
+            emptyList() // Возвращаем пустой список в случае ошибки
         }
-    }
-
+}
     fun getEventForDate(date: LocalDate): CalendarEvent? {
         return events.find { it.date == date }
     }
