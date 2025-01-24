@@ -1,20 +1,20 @@
-package com.example.vediccalendar2025
+package ua.pp.soulrise.vediccalendar2025
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
-import android.widget.TextView
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import io.noties.markwon.Markwon
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 import kotlin.math.abs
-import io.noties.markwon.Markwon
-import android.text.method.LinkMovementMethod
 
 class MainActivity : AppCompatActivity() {
     private lateinit var vedicCalendar: VedicCalendar
@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupNavigationButtons() {
-        findViewById<Button>(R.id.btnPrevious).setOnClickListener { 
+        findViewById<Button>(R.id.btnPrevious).setOnClickListener {
             navigateDate(-1)
         }
 
@@ -95,8 +95,9 @@ class MainActivity : AppCompatActivity() {
                 val diffY = e2.y - (e1?.y ?: 0f)
 
                 if (abs(diffX) > abs(diffY) && 
-                    abs(diffX) > SWIPE_THRESHOLD && 
-                    abs(velocityX) > SWIPE_VELOCITY_THRESHOLD) {
+                    abs(diffX) > SWIPE_THRESHOLD &&
+                    abs(velocityX) > SWIPE_VELOCITY_THRESHOLD
+                ) {
                     
                     navigateDate(if (diffX > 0) -1 else 1)
                     return true

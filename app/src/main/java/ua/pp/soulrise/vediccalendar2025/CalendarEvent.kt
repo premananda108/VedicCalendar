@@ -1,4 +1,4 @@
-package com.example.vediccalendar2025
+package ua.pp.soulrise.vediccalendar2025
 
 import java.time.LocalDate
 

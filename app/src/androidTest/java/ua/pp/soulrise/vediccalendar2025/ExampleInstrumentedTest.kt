@@ -1,4 +1,4 @@
-package com.example.vediccalendar2025
+package ua.pp.soulrise.vediccalendar2025
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
