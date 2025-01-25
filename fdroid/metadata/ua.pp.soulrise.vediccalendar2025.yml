@@ -16,7 +16,7 @@ Repo: https://github.com/premananda108/VedicCalendar2025
 Builds:
   - versionName: '1.0'
     versionCode: 1
-    commit: master
+    commit: v1.0
     subdir: app
     gradle:
       - yes
