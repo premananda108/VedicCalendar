@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "VedicCalendar2025"
+rootProject.name = "VedicCalendar"
 include(":app")

@@ -1,4 +1,4 @@
-package ua.pp.soulrise.vediccalendar2025
+package ua.pp.soulrise.vediccalendar
 
 import android.os.Bundle
 import android.text.method.LinkMovementMethod

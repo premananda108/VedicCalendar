@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "ua.pp.soulrise.vediccalendar2025"
+    namespace = "ua.pp.soulrise.vediccalendar"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "ua.pp.soulrise.vediccalendar2025"
+        applicationId = "ua.pp.soulrise.vediccalendar"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

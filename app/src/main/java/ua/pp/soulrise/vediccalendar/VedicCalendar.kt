@@ -1,4 +1,4 @@
-package ua.pp.soulrise.vediccalendar2025
+package ua.pp.soulrise.vediccalendar
 
 import android.content.Context
 import android.graphics.Bitmap

@@ -5,7 +5,7 @@
     <uses-sdk tools:overrideLibrary="java.time,java.time.format"/>
 
     <application
-        android:name="ua.pp.soulrise.vediccalendar2025.App"
+        android:name="ua.pp.soulrise.vediccalendar.App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -13,10 +13,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.VedicCalendar2025"
+        android:theme="@style/Theme.VedicCalendar"
         tools:targetApi="31">
         <activity
-            android:name="ua.pp.soulrise.vediccalendar2025.MainActivity"
+            android:name="ua.pp.soulrise.vediccalendar.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
