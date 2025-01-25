@@ -20,7 +20,7 @@
 **Premananda**
 - Telegram: [@Premananda1](https://t.me/Premananda1)
 - Email: djoty108@gmail.com
-- GitHub: [@premananda108](https://github.com/premananda108/VedicCalendar2025)
+- GitHub: [@premananda108](https://github.com/premananda108/VedicCalendar)
 
 ## Лицензия
 

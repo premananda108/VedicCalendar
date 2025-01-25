@@ -5,13 +5,13 @@ License: MIT
 AuthorName: Premananda
 AuthorEmail: djoty108@gmail.com
 WebSite: https://t.me/SoulRiseDev/8
-SourceCode: https://github.com/premananda108/VedicCalendar2025
-IssueTracker: https://github.com/premananda108/VedicCalendar2025/issues
+SourceCode: https://github.com/premananda108/VedicCalendar
+IssueTracker: https://github.com/premananda108/VedicCalendar/issues
 
 AutoName: Ведический Календарь
 
 RepoType: git
-Repo: https://github.com/premananda108/VedicCalendar2025
+Repo: https://github.com/premananda108/VedicCalendar
 
 Builds:
   - versionName: '1.0'
