@@ -1,5 +1,5 @@
 Categories:
-  - Time
+  - Calendar
 License: MIT
 AuthorName: Premananda
 AuthorEmail: djoty108@gmail.com
@@ -19,35 +19,54 @@ Builds:
     subdir: app
     gradle:
       - yes
+      - app:assembleRelease
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 CurrentVersion: '1.0'
 CurrentVersionCode: 1
 
-Description: |
-  Погрузитесь в мир вечной мудрости с нашим уникальным ведическим календарем на 2025 год!
+Summary:
+  en-US: Vedic calendar with holidays and quotes
+  ru-RU: Ведический Календарь
 
-  Особенности:
-  • Cписок основных индуистских праздников и священных дат на 2025 год
-  • Ежедневные вдохновляющие цитаты из священных ведических текстов
-  • Простой и интуитивно понятный интерфейс
-  • Работает полностью офлайн - вся информация доступна без интернета
-  • Не требует никаких разрешений - уважаем вашу приватность
+Description:
+  ru-RU: |
+    Погрузитесь в мир вечной мудрости с нашим уникальным ведическим календарем на 2025 год!
 
-  Наш календарь предлагает глубокое погружение в ведическую мудрость, 
-  сочетая традиционные знания с современным подходом к духовному развитию. 
-  Каждый день вы будете получать тщательно подобранную цитату из священных текстов, 
-  которая поможет вам в самопознании и духовном росте.
+    Особенности:
+    • Список основных индуистских праздников и священных дат на 2025 год
+    • Ежедневные вдохновляющие цитаты из священных ведических текстов
+    • Простой и интуитивно понятный интерфейс
+    • Работает полностью офлайн - вся информация доступна без интернета
+    • Не требует никаких разрешений - уважаем вашу приватность
 
-  Идеально подходит для:
-  - Практикующих индуизм
-  - Изучающих ведическую философию
-  - Интересующихся йогой и медитацией
-  - Всех, кто стремится к духовному росту и самопознанию
+    Наш календарь предлагает глубокое погружение в ведическую мудрость, сочетая традиционные знания с современным подходом к духовному развитию. Каждый день вы будете получать тщательно подобранную цитату из священных текстов, которая поможет вам в самопознании и духовном росте.
 
-  Приложение с открытым исходным кодом, без рекламы и трекеров. Мы верим в свободный обмен знаниями и духовный рост без ограничений.
+    Идеально подходит для:
+    - Практикующих индуизм
+    - Изучающих ведическую философию
+    - Интересующихся йогой и медитацией
+    - Всех, кто стремится к духовному росту и самопознанию
 
-  Присоединяйтесь к нашему растущему сообществу и откройте для себя глубину ведической мудрости в современном контексте!
+    Приложение с открытым исходным кодом, без рекламы и трекеров. Мы верим в свободный обмен знаниями и духовный рост без ограничений.
 
-  Ваши отзывы и предложения помогут нам сделать это приложение еще лучше. Спасибо за вашу поддержку!
+  en-US: |
+    Immerse yourself in the world of eternal wisdom with our unique Vedic calendar for 2025!
+
+    Features:
+    • List of major Hindu holidays and sacred dates for 2025
+    • Daily inspiring quotes from sacred Vedic texts
+    • Simple and intuitive interface
+    • Works completely offline - all information is available without internet
+    • Requires no permissions - we respect your privacy
+
+    Our calendar offers a deep dive into Vedic wisdom, combining traditional knowledge with a modern approach to spiritual development. Each day, you'll receive a carefully selected quote from sacred texts to aid in your self-discovery and spiritual growth.
+
+    Ideal for:
+    - Practitioners of Hinduism
+    - Students of Vedic philosophy
+    - Those interested in yoga and meditation
+    - Anyone seeking spiritual growth and self-knowledge
+
+    Open-source application, free from ads and trackers. We believe in the free exchange of knowledge and unrestricted spiritual growth.
