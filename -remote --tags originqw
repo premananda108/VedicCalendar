@@ -1,0 +1,18 @@
+[33mtag v1.0[m
+Tagger: premananda108 <djoty108@gmail.com>
+Date:   Sat Jan 25 09:54:46 2025 +0200
+
+Version 1.0
+
+[33mcommit 7d483ec70c2a3f282a0dcd9823bbb31afeb17432[m[33m ([m[1;33mtag: [m[1;33mv1.0[m[33m)[m
+Merge: b6f4064 d40f043
+Author: premananda108 <djoty108@gmail.com>
+Date:   Fri Jan 24 22:14:39 2025 +0200
+
+    Merge branch 'master' of https://github.com/premananda108/VedicCalendar2025
+    Merge remote changes with local updates
+    
+    - Integrate LICENSE file added on GitHub
+    - Resolve conflicts in project structure
+    - Update package name to ua.pp.soulrise.vediccalendar2025
+

@@ -3,20 +3,16 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
-def keystorePropertiesFile = rootProject.file("keystore.properties")
-def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-
 android {
     namespace 'ua.pp.soulrise.vediccalendar'
     compileSdk 34
 
     defaultConfig {
         applicationId "ua.pp.soulrise.vediccalendar"
-        minSdk 26
-        targetSdk 34
         versionCode 1
         versionName "1.0"
+        minSdk 26
+        targetSdk 34
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -35,23 +31,6 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
-    signingConfigs {
-        release {
-            storeFile rootProject.file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-        }
-    }
-
-    buildTypes {
-        release {
-            signingConfig signingConfigs.release
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
 }
 
 dependencies {
@@ -65,4 +44,4 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-} 
+}
