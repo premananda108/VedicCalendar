@@ -1,5 +1,5 @@
 Categories:
-  - Calendar
+  - Time
 License: MIT
 AuthorName: Premananda
 AuthorEmail: djoty108@gmail.com
@@ -7,24 +7,7 @@ WebSite: https://t.me/SoulRiseDev/8
 SourceCode: https://github.com/premananda108/VedicCalendar
 IssueTracker: https://github.com/premananda108/VedicCalendar/issues
 
-AutoName: Ведический Календарь
-
-RepoType: git
-Repo: https://github.com/premananda108/VedicCalendar
-
-Builds:
-  - versionName: '1.0'
-    versionCode: 1
-    commit: v1.0
-    subdir: app
-    gradle:
-      - yes
-      - app:assembleRelease
-
-AutoUpdateMode: Version
-UpdateCheckMode: Tags
-CurrentVersion: '1.0'
-CurrentVersionCode: 1
+AutoName: VedicCalendar
 
 Summary:
   en-US: Vedic calendar with holidays and quotes
@@ -32,24 +15,24 @@ Summary:
 
 Description:
   ru-RU: |
-    Погрузитесь в мир вечной мудрости с нашим уникальным ведическим календарем на 2025 год!
+    Погрузитесь в мир вечной мудрости c нашим уникальным ведическим календарем на 2025 год!
 
     Особенности:
     • Список основных индуистских праздников и священных дат на 2025 год
     • Ежедневные вдохновляющие цитаты из священных ведических текстов
     • Простой и интуитивно понятный интерфейс
     • Работает полностью офлайн - вся информация доступна без интернета
-    • Не требует никаких разрешений - уважаем вашу приватность
+    • He требует никаких разрешений - уважаем вашу приватность
 
-    Наш календарь предлагает глубокое погружение в ведическую мудрость, сочетая традиционные знания с современным подходом к духовному развитию. Каждый день вы будете получать тщательно подобранную цитату из священных текстов, которая поможет вам в самопознании и духовном росте.
+    Наш календарь предлагает глубокое погружение в ведическую мудрость, сочетая традиционные знания c современным подходом к духовному развитию. Каждый день вы будете получать тщательно подобранную цитату из священных текстов, которая поможет вам в самопознании и духовном росте.
 
     Идеально подходит для:
     - Практикующих индуизм
     - Изучающих ведическую философию
     - Интересующихся йогой и медитацией
-    - Всех, кто стремится к духовному росту и самопознанию
+    - Bcex, кто стремится к духовному росту и самопознанию
 
-    Приложение с открытым исходным кодом, без рекламы и трекеров. Мы верим в свободный обмен знаниями и духовный рост без ограничений.
+    Приложение c открытым исходным кодом, без рекламы и трекеров. Мы верим в свободный обмен знаниями и духовный рост без ограничений.
 
   en-US: |
     Immerse yourself in the world of eternal wisdom with our unique Vedic calendar for 2025!
@@ -70,3 +53,21 @@ Description:
     - Anyone seeking spiritual growth and self-knowledge
 
     Open-source application, free from ads and trackers. We believe in the free exchange of knowledge and unrestricted spiritual growth.
+
+RepoType: git
+Repo: https://github.com/premananda108/VedicCalendar
+
+Builds:
+  - versionName: '1.0'
+    versionCode: 1
+    commit: v1.0
+    subdir: app
+    gradle:
+      - yes
+      - app:assembleRelease
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: '1.0'
+CurrentVersionCode: 1
+
