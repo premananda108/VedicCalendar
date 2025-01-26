@@ -1,8 +1,0 @@
-{
-  "commandLine": [
-    "C:\\Users\\Video\\AppData\\Local\\Programs\\Python\\Python313\\Scripts\\fdroid update",
-    "--create-metadata"
-  ],
-  "startTimestamp": 1737907246000,
-  "subcommand": "update"
-}
