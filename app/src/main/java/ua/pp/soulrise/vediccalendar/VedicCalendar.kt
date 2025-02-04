@@ -8,6 +8,7 @@ import android.util.LruCache
 import com.google.gson.Gson
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 class VedicCalendar(private val context: Context) {
     private val events: List<CalendarEvent>
@@ -27,8 +28,21 @@ class VedicCalendar(private val context: Context) {
 
     private fun loadEventsFromJson(): List<CalendarEvent> {
         return try {
-            val jsonString = context.assets.open("calendar_data.json").bufferedReader().use { it.readText() }
-            Log.d("VedicCalendar", "JSON Loaded: $jsonString") // Логирование загруженного JSON
+            val locale = Locale.getDefault()
+            val languageCode = when (locale.language) {
+                "en" -> "en"
+                "uk" -> "uk"
+                else -> "" // Default (Russian)
+            }
+            
+            val jsonPath = if (languageCode.isEmpty()) {
+                "calendar_data.json"
+            } else {
+                "$languageCode/calendar_data.json"
+            }
+            
+            val jsonString = context.assets.open(jsonPath).bufferedReader().use { it.readText() }
+            Log.d("VedicCalendar", "JSON Loaded from: $jsonPath")
             val gson = Gson()
             val calendarData = gson.fromJson(jsonString, CalendarData::class.java)
             
@@ -43,7 +57,8 @@ class VedicCalendar(private val context: Context) {
             Log.e("VedicCalendar", "Error loading events from JSON: ${e.message}", e)
             emptyList() // Возвращаем пустой список в случае ошибки
         }
-}
+    }
+
     fun getEventForDate(date: LocalDate): CalendarEvent? {
         return events.find { it.date == date }
     }

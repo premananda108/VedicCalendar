@@ -60,6 +60,7 @@ class MainActivity : AppCompatActivity() {
         tvEvent.movementMethod = LinkMovementMethod.getInstance()
 
         setupNavigationButtons()
+        setupLanguageButtons()
     }
 
     private fun setupNavigationButtons() {
@@ -69,6 +70,18 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.btnNext).setOnClickListener {
             navigateDate(1)
+        }
+    }
+
+    private fun setupLanguageButtons() {
+        findViewById<Button>(R.id.btnEn).setOnClickListener {
+            setAppLanguage("en")
+        }
+        findViewById<Button>(R.id.btnUk).setOnClickListener {
+            setAppLanguage("uk")
+        }
+        findViewById<Button>(R.id.btnRu).setOnClickListener {
+            setAppLanguage("ru")
         }
     }
 
@@ -146,5 +159,14 @@ class MainActivity : AppCompatActivity() {
         } else {
             ivEventImage.visibility = View.GONE
         }
+    }
+
+    private fun setAppLanguage(languageCode: String) {
+        val locale = Locale(languageCode)
+        Locale.setDefault(locale)
+        val config = resources.configuration
+        config.setLocale(locale)
+        resources.updateConfiguration(config, resources.displayMetrics)
+        recreate() // Пересоздаем активити для применения изменений
     }
 }

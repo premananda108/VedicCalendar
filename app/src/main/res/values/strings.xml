@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Vedic Calendar</string>
-    <string name="previous">Предыдущий</string>
-    <string name="next">Следующий</string>
-    <string name="event_image">Изображение события</string>
-    <string name="no_event">Нет события на эту дату</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="event_image">Event image</string>
+    <string name="no_event">No event for this date</string>
+    <string name="lang_en">EN</string>
+    <string name="lang_ru">RU</string>
+    <string name="lang_uk">UA</string>
 </resources>

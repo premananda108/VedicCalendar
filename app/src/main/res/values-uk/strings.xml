@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ведичний Календар</string>
+    <string name="previous">Попередній</string>
+    <string name="next">Наступний</string>
+    <string name="event_image">Зображення події</string>
+    <string name="no_event">Немає події на цю дату</string>
+    <string name="lang_en">АНГ</string>
+    <string name="lang_ru">РОС</string>
+    <string name="lang_uk">УКР</string>
+</resources>
