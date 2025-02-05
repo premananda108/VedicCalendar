@@ -1,0 +1,9 @@
+sdk:
+  - cmdline-tools
+  - platform-tools
+  - build-tools;34.0.0
+
+build:
+  - gradle
+
+output: app/build/outputs/apk/release/app-release.apk

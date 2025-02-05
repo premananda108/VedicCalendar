@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId = "ua.pp.soulrise.vediccalendar"
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.1"
         minSdk = 24
         targetSdk = 34
 
@@ -20,10 +20,12 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
+            signingConfig = null
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            resourceExcludes += listOf("**/license.*")
         }
     }
     compileOptions {

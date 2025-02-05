@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     private companion object {
         const val SWIPE_THRESHOLD = 100
         const val SWIPE_VELOCITY_THRESHOLD = 100
+        const val KEY_CURRENT_DATE = "current_date" // Добавляем ключ для сохранения даты
     }
     
     // Форматтер даты как статическое поле
@@ -37,6 +38,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // Восстанавливаем дату если она была сохранена
+        savedInstanceState?.getString(KEY_CURRENT_DATE)?.let {
+            currentDate = LocalDate.parse(it)
+        }
 
         setupToolbar()
         initializeComponents()
@@ -168,5 +174,11 @@ class MainActivity : AppCompatActivity() {
         config.setLocale(locale)
         resources.updateConfiguration(config, resources.displayMetrics)
         recreate() // Пересоздаем активити для применения изменений
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        // Сохраняем текущую дату
+        outState.putString(KEY_CURRENT_DATE, currentDate.toString())
     }
 }

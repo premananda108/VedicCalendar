@@ -1,0 +1,10 @@
+Vedic Calendar is an application that provides easy access to important Vedic dates and events. 
+
+Features:
+• Simple and intuitive interface
+• Swipe gestures for date navigation
+• Support for multiple languages (English, Russian, Ukrainian)
+• Display of Vedic events with associated images
+• No ads or tracking
+
+The application helps practitioners of Vedic traditions to keep track of important dates and events in the Vedic calendar.

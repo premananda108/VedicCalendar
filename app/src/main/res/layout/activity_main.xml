@@ -44,35 +44,38 @@
 
                     <Button
                         android:id="@+id/btnEn"
+                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="48dp"
                         android:layout_height="36dp"
-                        android:text="@string/lang_en"
-                        android:textSize="12sp"
-                        android:padding="0dp"
-                        android:textColor="?attr/colorOnPrimary"
                         android:layout_marginEnd="4dp"
-                        style="@style/Widget.MaterialComponents.Button"/>
+                        android:padding="0dp"
+                        android:text="@string/lang_en"
+                        android:textColor="?attr/colorOnPrimary"
+                        android:textSize="12sp"
+                        tools:ignore="TouchTargetSizeCheck" />
 
                     <Button
                         android:id="@+id/btnUk"
+                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="48dp"
                         android:layout_height="36dp"
-                        android:text="@string/lang_uk"
-                        android:textSize="12sp"
-                        android:padding="0dp"
-                        android:textColor="?attr/colorOnPrimary"
                         android:layout_marginEnd="4dp"
-                        style="@style/Widget.MaterialComponents.Button"/>
+                        android:padding="0dp"
+                        android:text="@string/lang_uk"
+                        android:textColor="?attr/colorOnPrimary"
+                        android:textSize="12sp"
+                        tools:ignore="TouchTargetSizeCheck" />
 
                     <Button
                         android:id="@+id/btnRu"
+                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="48dp"
                         android:layout_height="36dp"
-                        android:text="@string/lang_ru"
-                        android:textSize="12sp"
                         android:padding="0dp"
+                        android:text="@string/lang_ru"
                         android:textColor="?attr/colorOnPrimary"
-                        style="@style/Widget.MaterialComponents.Button"/>
+                        android:textSize="12sp"
+                        tools:ignore="TouchTargetSizeCheck" />
 
                 </LinearLayout>
             </RelativeLayout>
